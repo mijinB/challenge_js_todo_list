@@ -53,3 +53,11 @@ function onTodoSubmit(event) {
 }
 
 todoForm.addEventListener("submit", onTodoSubmit);
+
+const savedTodos = localStorage.getItem(TODOS_KEY);
+if(saveTodos !== null) {
+  const parsedTodos = JSON.parse(savedTodos);
+  todos = parsedTodos;
+
+  parsedTodos.forEach(paintTodo);
+}
