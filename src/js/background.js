@@ -18,7 +18,4 @@ const images = [
 
 const chosenImage = images[Math.floor(Math.random() * images.length)];
 
-const bgImage = document.createElement("img");
-bgImage.src = `src/images/${chosenImage}`;
-
-document.body.appendChild(bgImage);
+document.body.style.background = `url(src/images/${chosenImage}) center/cover no-repeat`;
