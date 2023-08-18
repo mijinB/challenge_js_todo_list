@@ -2,12 +2,19 @@ const todoForm = document.getElementById("todo-form");
 const todoInput = todoForm.querySelector("input");
 const todoList = document.getElementById("todo-list");
 
+const TODOS_KEY = "todos";
+
 let todos = [];
+
+function saveTodos() {
+  localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
+}
 
 function deleteTodo(event) {
   const li = event.target.parentElement;
 
   todos = todos.filter(todo => todo.id !== parseInt(li.id));
+  saveTodos();
 
   li.remove();
 }
@@ -42,6 +49,7 @@ function onTodoSubmit(event) {
 
   todos.push(newTodoObj);
   paintTodo(newTodoObj);
+  saveTodos();
 }
 
 todoForm.addEventListener("submit", onTodoSubmit);
