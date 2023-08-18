@@ -11,7 +11,7 @@ function saveTodos() {
 }
 
 function deleteTodo(event) {
-  const li = event.target.parentElement;
+  const li = event.parentElement;
 
   todos = todos.filter(todo => todo.id !== parseInt(li.id));
   saveTodos();
@@ -34,7 +34,7 @@ function paintTodo(newTodoObj) {
     <label for="id_${newTodoObj.id}">
       ${newTodoObj.text}
     </label>
-    <button onClick="deleteTodo">
+    <button onClick="deleteTodo(this)">
       ✖
     </button>
   `;
