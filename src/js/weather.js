@@ -10,10 +10,16 @@ function fetchWeatherInfo(position) {
     .then(data => {
       console.log(data);
       const city = document.querySelector("#weather h4");
-      const weather = document.querySelector("#weather span:first-of-type");
+      const weather = document.querySelector("#weather-state");
       const temp = document.querySelector("#temp");
+
       city.innerText = data.name;
-      weather.innerText = `${data.weather[0].main}`;
+
+      const weatherText = data.weather[0].main;
+      const weatherIcon = data.weather[0].icon;
+      weather.innerHTML = `<img src="https://openweathermap.org/img/wn/${weatherIcon}.png" />${weatherText}`;
+
+
       temp.innerHTML = `<img src="src/images/thermometer.png" style="width:20px;" />${data.main.temp}`;
     });
 }
