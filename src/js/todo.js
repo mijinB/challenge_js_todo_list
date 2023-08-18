@@ -26,9 +26,13 @@ function paintTodo(newTodoObj) {
 
   li.id = newTodoObj.id;
   li.innerHTML = `
-    <label>
-      <input type="checkbox" />
-      <span>${newTodoObj.text}</span>
+    <input
+      type="checkbox"
+      id="id_${newTodoObj.id}"
+      class="todo-checkbox"
+    />
+    <label for="id_${newTodoObj.id}">
+      ${newTodoObj.text}
     </label>
     <button onClick="deleteTodo">
       ✖

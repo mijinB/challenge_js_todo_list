@@ -7,7 +7,7 @@
     <title>ToDo List</title>
   </head>
   <body>
-    <h2 id="clock">00:00:00</h2>
+    <span id="clock">00:00:00</span>
     <div id="weather">
       <h4></h4>
       <span id="weather-state"></span>
@@ -24,17 +24,20 @@
       <button>Log In</button>
     </form>
     <div class="todo-card">
-      <h2 id="greeting" class="hidden"></h2>
-      <div class="todo-dress-left">
-        <form id="todo-form">
-          <input
-            required
-            type="text"
-            placeholder="Write what you have to do"
-          />
-          <button>➕</button>
-        </form>
-        <ul id="todo-list"></ul>
+      <div class="todo-card-top"></div>
+      <div>
+        <h2 id="greeting" class="hidden"></h2>
+        <div class="todo-dress-left">
+          <form id="todo-form">
+            <input
+              required
+              type="text"
+              placeholder="Write what you have to do"
+            />
+            <button>➕</button>
+          </form>
+          <ul id="todo-list"></ul>
+        </div>
       </div>
     </div>
     <script src="src/js/apiKey.js"></script>
