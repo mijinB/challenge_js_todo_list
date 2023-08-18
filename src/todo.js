@@ -4,6 +4,14 @@ const todoList = document.getElementById("todo-list");
 
 let todos = [];
 
+function deleteTodo(event) {
+  const li = event.target.parentElement;
+
+  todos = todos.filter(todo => todo.id !== parseInt(li.id));
+
+  li.remove();
+}
+
 function paintTodo(newTodoObj) {
   const li = document.createElement("li");
   const span = document.createElement("span");
@@ -17,6 +25,8 @@ function paintTodo(newTodoObj) {
 
   span.innerText = newTodoObj.text;
   button.innerText = "✖";
+
+  button.addEventListener("click", deleteTodo);
 }
 
 function onTodoSubmit(event) {
