@@ -2,6 +2,14 @@ body {
   height: 100vh;
 }
 
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
 h4 {
   margin: 0;
 }
@@ -17,4 +25,17 @@ h4 {
 #weather-state {
   display: flex;
   align-items: center
+}
+
+.todo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 25%;
+  border: 2px solid red;
+}
+
+.todo-dress-left {
+  display: flex;
+  flex-direction: column;
 }

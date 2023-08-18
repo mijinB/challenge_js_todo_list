@@ -21,19 +21,19 @@ function deleteTodo(event) {
 
 function paintTodo(newTodoObj) {
   const li = document.createElement("li");
-  const span = document.createElement("span");
-  const button = document.createElement("button");
-
-  li.id = newTodoObj.id;
 
   todoList.appendChild(li);
-  li.appendChild(span);
-  li.appendChild(button);
 
-  span.innerText = newTodoObj.text;
-  button.innerText = "✖";
-
-  button.addEventListener("click", deleteTodo);
+  li.id = newTodoObj.id;
+  li.innerHTML = `
+    <label>
+      <input type="checkbox" />
+      <span>${newTodoObj.text}</span>
+    </label>
+    <button onClick="deleteTodo">
+      ✖
+    </button>
+  `;
 }
 
 function onTodoSubmit(event) {
@@ -55,7 +55,7 @@ function onTodoSubmit(event) {
 todoForm.addEventListener("submit", onTodoSubmit);
 
 const savedTodos = localStorage.getItem(TODOS_KEY);
-if(saveTodos !== null) {
+if (saveTodos !== null) {
   const parsedTodos = JSON.parse(savedTodos);
   todos = parsedTodos;
 
