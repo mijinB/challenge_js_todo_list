@@ -8,7 +8,6 @@ function fetchWeatherInfo(position) {
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       const city = document.querySelector("#weather h4");
       const weather = document.querySelector("#weather-state");
       const temp = document.querySelector("#temp");
