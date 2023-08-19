@@ -19,6 +19,22 @@ function deleteTodo(event) {
   li.remove();
 }
 
+function setComplete(id) {
+  const newTodos = todos.map(todo => {
+    if (todo.id === parseInt(id)) {
+      return {
+        ...todo,
+        isComplete: !todo.isComplete
+      };
+    } else {
+      return todo;
+    }
+  })
+
+  todos = newTodos;
+  saveTodos();
+}
+
 function paintTodo(newTodoObj) {
   const li = document.createElement("li");
 
@@ -30,6 +46,8 @@ function paintTodo(newTodoObj) {
       type="checkbox"
       id="id_${newTodoObj.id}"
       class="todo-checkbox"
+      onClick="setComplete(${newTodoObj.id})"
+      ${newTodoObj.isComplete && "checked"}
     />
     <label for="id_${newTodoObj.id}">
       ${newTodoObj.text}
@@ -49,6 +67,7 @@ function onTodoSubmit(event) {
   const newTodoObj = {
     id: Date.now(),
     text: newTodo,
+    isComplete: false,
   };
 
   todos.push(newTodoObj);
@@ -59,7 +78,7 @@ function onTodoSubmit(event) {
 todoForm.addEventListener("submit", onTodoSubmit);
 
 const savedTodos = localStorage.getItem(TODOS_KEY);
-if (saveTodos !== null) {
+if (savedTodos !== null) {
   const parsedTodos = JSON.parse(savedTodos);
   todos = parsedTodos;
 
