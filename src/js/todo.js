@@ -5,13 +5,15 @@ const todoList = document.getElementById("todo-list");
 const TODOS_KEY = "todos";
 
 let todos = [];
+let isEditing = false;
+let editingTodoID = "";
 
 function saveTodos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
 }
 
-function deleteTodo(event) {
-  const li = event.parentElement;
+function deleteTodo(element) {
+  const li = element.parentElement;
 
   todos = todos.filter(todo => todo.id !== parseInt(li.id));
   saveTodos();
@@ -19,8 +21,38 @@ function deleteTodo(event) {
   li.remove();
 }
 
+function onEditTodo(id) {
+  isEditing = true;
+  editingTodoID = id;
+
+  onTodoLoad();
+}
+
+function updateTodo(id) {
+  todos = todos.map(todo => {
+    if (todo.id === parseInt(id)) {
+      return {
+        ...todo,
+        text: document.getElementById(`id_${id}`)?.value
+      }
+    } else {
+      return todo;
+    }
+  })
+  isEditing = false;
+  editingTodoID = null;
+  saveTodos();
+  onTodoLoad();
+}
+
+function cancelEdit() {
+  isEditing = false;
+  editingTodoID = null;
+  onTodoLoad();
+}
+
 function setComplete(id) {
-  const newTodos = todos.map(todo => {
+  todos = todos.map(todo => {
     if (todo.id === parseInt(id)) {
       return {
         ...todo,
@@ -31,7 +63,6 @@ function setComplete(id) {
     }
   })
 
-  todos = newTodos;
   saveTodos();
 }
 
@@ -41,21 +72,42 @@ function paintTodo(newTodoObj) {
   todoList.appendChild(li);
 
   li.id = newTodoObj.id;
-  li.innerHTML = `
-    <input
-      type="checkbox"
-      id="id_${newTodoObj.id}"
-      class="todo-checkbox"
-      onClick="setComplete(${newTodoObj.id})"
-      ${newTodoObj.isComplete && "checked"}
-    />
-    <label for="id_${newTodoObj.id}" class="todo-text">
-      ${newTodoObj.text}
-    </label>
-    <button onClick="deleteTodo(this)">
-      ✖
-    </button>
-  `;
+
+  if (newTodoObj.id === editingTodoID) {
+    li.innerHTML = `
+      <input
+        required
+        type="text"
+        id="id_${newTodoObj.id}"
+        value="${newTodoObj.text}"
+      />
+      <button onClick="updateTodo(${newTodoObj.id})">
+        ✔
+      </button>
+      <button onClick="cancelEdit()">
+        ✖
+      </button>
+    `
+  } else {
+    li.innerHTML = `
+      <input
+        type="checkbox"
+        id="id_${newTodoObj.id}"
+        class="todo-checkbox"
+        onClick="setComplete(${newTodoObj.id})"
+        ${newTodoObj.isComplete && "checked"}
+      />
+      <label for="id_${newTodoObj.id}" class="todo-text">
+        ${newTodoObj.text}
+      </label>
+      <button onClick="onEditTodo(${newTodoObj.id})">
+        edit
+      </button>
+      <button onClick="deleteTodo(this)">
+        ✖
+      </button>
+    `;
+  }
 }
 
 function onTodoSubmit(event) {
@@ -77,10 +129,17 @@ function onTodoSubmit(event) {
 
 todoForm.addEventListener("submit", onTodoSubmit);
 
-const savedTodos = localStorage.getItem(TODOS_KEY);
-if (savedTodos !== null) {
-  const parsedTodos = JSON.parse(savedTodos);
-  todos = parsedTodos;
 
-  parsedTodos.forEach(paintTodo);
+window.onload = () => onTodoLoad();
+
+function onTodoLoad() {
+  const savedTodos = localStorage.getItem(TODOS_KEY);
+  todoList.innerHTML = '';
+
+  if (savedTodos !== null) {
+    const parsedTodos = JSON.parse(savedTodos);
+    todos = parsedTodos;
+
+    parsedTodos.forEach(paintTodo);
+  }
 }
