@@ -81,12 +81,14 @@ function paintTodo(newTodoObj) {
         id="id_${newTodoObj.id}"
         value="${newTodoObj.text}"
       />
-      <button onClick="updateTodo(${newTodoObj.id})">
-        ✔
-      </button>
-      <button onClick="cancelEdit()">
-        ✖
-      </button>
+      <div>
+        <button onClick="updateTodo(${newTodoObj.id})">
+          ✔
+        </button>
+        <button onClick="cancelEdit()">
+          ✖
+        </button>
+      </div>
     `
   } else {
     li.innerHTML = `
@@ -100,13 +102,15 @@ function paintTodo(newTodoObj) {
       <label for="id_${newTodoObj.id}" class="todo-text">
         ${newTodoObj.text}
       </label>
-      <button onClick="onEditTodo(${newTodoObj.id})">
-        edit
-      </button>
-      <button onClick="deleteTodo(this)">
-        ✖
-      </button>
-    `;
+      <div>
+        <button onClick="onEditTodo(${newTodoObj.id})">
+          edit
+        </button>
+        <button onClick="deleteTodo(this)">
+          ✖
+        </button>
+      </div>
+      `;
   }
 }
 
