@@ -131,6 +131,10 @@ h2 {
   text-shadow: 2px 2px 3px gray;
   font-size: 30px;
 }
+#login-form h2 {
+  margin-top: 70px;
+}
+
 h4 {
   margin: 0;
 }
@@ -191,10 +195,14 @@ p {
   min-width: 400px;
 }
 
+#login-form input {
+  width: 75%;
+}
+
 #todo-form input {
   width: 80%;
 }
-#todo-form button {
+#login-form button, #todo-form button {
   padding: 4px 11px;
   height: 30.6px;
   color: white;
@@ -207,7 +215,7 @@ p {
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
-#todo-form button:hover{
+#login-form button:hover, #todo-form button:hover{
   background-color: rgb(250, 156, 172);
 }
 
