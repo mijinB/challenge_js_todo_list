@@ -27,13 +27,51 @@ const gradient = [
   ["#cac531", "#f3f9a7", "#fffde4"],
 ]
 
-// const chosenImage = images[Math.floor(Math.random() * images.length)];
-// document.body.style.background = `url(src/assets/images/${chosenImage}) center/cover no-repeat`;
+const illustratorButton = document.getElementById("illustrator-button");
+const gradientButton = document.getElementById("gradient-button");
 
-const chosenGradient = gradient[Math.floor(Math.random() * images.length)];
-console.log(chosenGradient);
-if(chosenGradient !== undefined) {
-  document.body.style.background = `linear-gradient(45deg, ${chosenGradient[0]}, ${chosenGradient[1]}, ${chosenGradient[2]})`;
-} else {
-  document.body.style.background = `linear-gradient(45deg, ${gradient[0][0]}, ${gradient[0][1]}, ${gradient[0][2]})`;
+const ILLUSTRATOR_STYLE = "illustrator";
+const GRADIENT_STYLE = "gradient";
+const BACKGROUNDSTYLE_KEY = "backgroundstyle";
+
+let choicedBackground = ILLUSTRATOR_STYLE;
+
+const paintBackground = (style) => {
+  if(style === ILLUSTRATOR_STYLE) {
+    const chosenImage = images[Math.floor(Math.random() * images.length)];
+    document.body.style.background = `url(src/assets/images/${chosenImage}) center/cover no-repeat`;
+  } else if(style === GRADIENT_STYLE) {
+    const chosenGradient = gradient[Math.floor(Math.random() * images.length)];
+    
+    if(chosenGradient !== undefined) {
+      document.body.style.background = `linear-gradient(45deg, ${chosenGradient[0]}, ${chosenGradient[1]}, ${chosenGradient[2]})`;
+    } else {
+      document.body.style.background = `linear-gradient(45deg, ${gradient[0][0]}, ${gradient[0][1]}, ${gradient[0][2]})`;
+    }
+  }
 }
+
+const choiceIllustrator = () => {
+  choicedBackground = ILLUSTRATOR_STYLE;
+  localStorage.setItem(BACKGROUNDSTYLE_KEY, choicedBackground);
+
+  paintBackground(choicedBackground);
+}
+
+const choiceGradient = () => {
+  choicedBackground = GRADIENT_STYLE;
+  localStorage.setItem(BACKGROUNDSTYLE_KEY, choicedBackground);
+
+  paintBackground(choicedBackground);
+}
+
+const chosenBackground = localStorage.getItem(BACKGROUNDSTYLE_KEY);
+if(chosenBackground == null) {
+  choicedBackground = ILLUSTRATOR_STYLE;
+  paintBackground(choicedBackground);
+} else {
+  paintBackground(chosenBackground);
+}
+
+illustratorButton.addEventListener("click", choiceIllustrator);
+gradientButton.addEventListener("click", choiceGradient);
