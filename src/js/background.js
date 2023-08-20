@@ -27,6 +27,10 @@ const gradient = [
   ["#cac531", "#f3f9a7", "#fffde4"],
 ]
 
+const settingFolderButton = document.getElementById("setting-folder-button");
+const settingCloseButton = document.getElementById("setting-close-button");
+const settingBox = document.getElementById("setting-box");
+
 const illustratorButton = document.getElementById("illustrator-button");
 const gradientButton = document.getElementById("gradient-button");
 
@@ -35,6 +39,14 @@ const GRADIENT_STYLE = "gradient";
 const BACKGROUNDSTYLE_KEY = "backgroundstyle";
 
 let choicedBackground = ILLUSTRATOR_STYLE;
+
+const onSetting = () => {
+  settingBox.classList.remove("hidden");
+}
+
+const closeSetting = () => {
+  settingBox.classList.add("hidden");
+}
 
 const paintBackground = (style) => {
   if(style === ILLUSTRATOR_STYLE) {
@@ -73,5 +85,7 @@ if(chosenBackground == null) {
   paintBackground(chosenBackground);
 }
 
+settingFolderButton.addEventListener("click", onSetting);
+settingCloseButton.addEventListener("click", closeSetting);
 illustratorButton.addEventListener("click", choiceIllustrator);
 gradientButton.addEventListener("click", choiceGradient);
