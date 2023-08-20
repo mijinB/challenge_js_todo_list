@@ -38,6 +38,8 @@ const gradient = [
   ["#cac531", "#f3f9a7", "#fffde4"],
 ]
 
+const changeButton = document.getElementById("change-button");
+
 const settingFolderButton = document.getElementById("setting-folder-button");
 const settingCloseButton = document.getElementById("setting-close-button");
 const settingBox = document.getElementById("setting-box");
@@ -103,6 +105,7 @@ if(chosenBackground == null) {
   paintBackground(chosenBackground);
 }
 
+changeButton.addEventListener("click", () => paintBackground(choicedBackground));
 settingFolderButton.addEventListener("click", onSetting);
 settingCloseButton.addEventListener("click", closeSetting);
 cornilioButton.addEventListener("click", choiceCornilio);
