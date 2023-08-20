@@ -12,13 +12,11 @@ function saveTodos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
 }
 
-function deleteTodo(element) {
-  const li = element.parentElement;
-
-  todos = todos.filter(todo => todo.id !== parseInt(li.id));
+function deleteTodo(id) {
+  todos = todos.filter(todo => todo.id !== parseInt(id));
   saveTodos();
 
-  li.remove();
+  document.getElementById(id).remove();
 }
 
 function onEditTodo(id) {
@@ -89,22 +87,22 @@ function paintTodo(newTodoObj) {
   if (newTodoObj.id !== editingTodoID) {
     li.innerHTML = `
       <input
-      type="checkbox"
-      id="id_${newTodoObj.id}"
-      class="todo-checkbox"
-      onClick="setComplete(${newTodoObj.id})"
-      ${newTodoObj.isComplete && "checked"}
+        type="checkbox"
+        id="id_${newTodoObj.id}"
+        class="todo-checkbox"
+        onClick="setComplete(${newTodoObj.id})"
+        ${newTodoObj.isComplete && "checked"}
       />
       <label for="id_${newTodoObj.id}" class="todo-text">
-      ${newTodoObj.text}
+        ${newTodoObj.text}
       </label>
       <div>
-      <button onClick="onEditTodo(${newTodoObj.id})">
-      edit
-      </button>
-      <button onClick="deleteTodo(this)">
-      ✖
-      </button>
+        <button onClick="onEditTodo(${newTodoObj.id})">
+          edit
+        </button>
+        <button onClick="deleteTodo(${newTodoObj.id})">
+          ✖
+        </button>
       </div>
     `;
   } else {
