@@ -97,17 +97,21 @@ const choiceGradient = () => {
   paintBackground(choicedBackground);
 }
 
-const chosenBackground = localStorage.getItem(BACKGROUNDSTYLE_KEY);
-if(chosenBackground == null) {
-  choicedBackground = CORNILIO_STYLE;
-  paintBackground(choicedBackground);
-} else {
-  paintBackground(chosenBackground);
+const onLoadPaint = () => {
+  const chosenBackground = localStorage.getItem(BACKGROUNDSTYLE_KEY);
+  if(chosenBackground == null) {
+    choicedBackground = CORNILIO_STYLE;
+    paintBackground(choicedBackground);
+  } else {
+    paintBackground(chosenBackground);
+  }
 }
 
-changeButton.addEventListener("click", () => paintBackground(choicedBackground));
+changeButton.addEventListener("click", onLoadPaint);
 settingFolderButton.addEventListener("click", onSetting);
 settingCloseButton.addEventListener("click", closeSetting);
 cornilioButton.addEventListener("click", choiceCornilio);
 puuungButton.addEventListener("click", choicePuuung);
 gradientButton.addEventListener("click", choiceGradient);
+
+onLoadPaint();
