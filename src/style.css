@@ -347,6 +347,7 @@ p {
   height: 465px;
   background-color: wheat;
 }
+
 #mini-games button {
   background: none;
   border: none;
@@ -427,4 +428,31 @@ p {
 }
 #mini-games #hidden-div .bold {
   margin-top: 8px;
+}
+
+.setting-background > p {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.background-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.background-button {
+  display: flex;
+  flex-direction: column;
+}
+.background-button button {
+  border: none;
+  background: none;
+  font-size: 35px;
+  cursor: pointer;
+}
+.background-button button:hover {
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, .5);
+}
+.background-button p {
+  font-size: 14px;
 }
