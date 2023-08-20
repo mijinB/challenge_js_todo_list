@@ -72,14 +72,36 @@ function paintTodo(newTodoObj) {
   todoList.appendChild(li);
 
   li.id = newTodoObj.id;
-
-  if (newTodoObj.id === editingTodoID) {
+  
+  if (newTodoObj.id !== editingTodoID) {
+    li.innerHTML = `
+    <input
+    type="checkbox"
+    id="id_${newTodoObj.id}"
+    class="todo-checkbox"
+    onClick="setComplete(${newTodoObj.id})"
+    ${newTodoObj.isComplete && "checked"}
+    />
+    <label for="id_${newTodoObj.id}" class="todo-text">
+    ${newTodoObj.text}
+    </label>
+    <div>
+    <button onClick="onEditTodo(${newTodoObj.id})">
+    edit
+    </button>
+    <button onClick="deleteTodo(this)">
+    ✖
+    </button>
+    </div>
+    `;
+  } else {
     li.innerHTML = `
       <input
         required
         type="text"
         id="id_${newTodoObj.id}"
         value="${newTodoObj.text}"
+        class="edit-input"
       />
       <div>
         <button onClick="updateTodo(${newTodoObj.id})">
@@ -90,27 +112,6 @@ function paintTodo(newTodoObj) {
         </button>
       </div>
     `
-  } else {
-    li.innerHTML = `
-      <input
-        type="checkbox"
-        id="id_${newTodoObj.id}"
-        class="todo-checkbox"
-        onClick="setComplete(${newTodoObj.id})"
-        ${newTodoObj.isComplete && "checked"}
-      />
-      <label for="id_${newTodoObj.id}" class="todo-text">
-        ${newTodoObj.text}
-      </label>
-      <div>
-        <button onClick="onEditTodo(${newTodoObj.id})">
-          edit
-        </button>
-        <button onClick="deleteTodo(this)">
-          ✖
-        </button>
-      </div>
-      `;
   }
 }
 
