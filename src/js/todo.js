@@ -26,6 +26,12 @@ function onEditTodo(id) {
   editingTodoID = id;
 
   onTodoLoad();
+
+  const inputElement = document.querySelector("input[id^=id][type=text]");
+  const valueLength = inputElement.value.length;
+
+  inputElement.setSelectionRange(valueLength, valueLength);
+  inputElement.focus();
 }
 
 function updateTodo(id) {
@@ -139,22 +145,20 @@ function onTodoSubmit(event) {
   saveTodos();
 }
 
-todoForm.addEventListener("submit", onTodoSubmit);
-
-
-window.onload = () => onTodoLoad();
-
 function onTodoLoad() {
   const savedTodos = localStorage.getItem(TODOS_KEY);
   todoList.innerHTML = '';
-
+  
   if (savedTodos !== null) {
     const parsedTodos = JSON.parse(savedTodos);
     todos = parsedTodos;
-
+    
     parsedTodos.forEach(paintTodo);
   }
-
+  
   const editInput = document.querySelector("input[id^=id][type=text]");
-  editInput?.addEventListener('keypress', onEnterKeySubmit);
+  editInput?.addEventListener("keypress", onEnterKeySubmit);
 }
+
+todoForm.addEventListener("submit", onTodoSubmit);
+window.onload = () => onTodoLoad();
