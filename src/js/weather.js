@@ -19,7 +19,7 @@ function fetchWeatherInfo(position) {
       weather.innerHTML = `<img src="https://openweathermap.org/img/wn/${weatherIcon}.png" />${weatherText}`;
 
 
-      temp.innerHTML = `<img src="src/images/thermometer.png" style="width:20px;" />${data.main.temp}`;
+      temp.innerHTML = `<img src="src/assets/images/thermometer.png" style="width:20px;" />${data.main.temp}`;
     });
 }
 

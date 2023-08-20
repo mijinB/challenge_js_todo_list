@@ -49,7 +49,7 @@ function paintTodo(newTodoObj) {
       onClick="setComplete(${newTodoObj.id})"
       ${newTodoObj.isComplete && "checked"}
     />
-    <label for="id_${newTodoObj.id}">
+    <label for="id_${newTodoObj.id}" class="todo-text">
       ${newTodoObj.text}
     </label>
     <button onClick="deleteTodo(this)">

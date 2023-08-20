@@ -18,4 +18,4 @@ const images = [
 
 const chosenImage = images[Math.floor(Math.random() * images.length)];
 
-document.body.style.background = `url(src/images/${chosenImage}) center/cover no-repeat`;
+document.body.style.background = `url(src/assets/images/${chosenImage}) center/cover no-repeat`;

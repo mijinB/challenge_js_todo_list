@@ -1,3 +1,33 @@
+@font-face {
+  font-family: "IBM";
+  font-weight: 300;
+  src: url(./assets/fonts/IBMPlexSansKR-Light.ttf);
+}
+@font-face {
+  font-family: "IBM";
+  font-weight: 400;
+  src: url(./assets/fonts/IBMPlexSansKR-Regular.ttf);
+}
+@font-face {
+  font-family: "IBM";
+  font-weight: 500;
+  src: url(./assets/fonts/IBMPlexSansKR-Medium.ttf);
+}
+@font-face {
+  font-family: "IBM";
+  font-weight: 600;
+  src: url(./assets/fonts/IBMPlexSansKR-SemiBold.ttf);
+}
+@font-face {
+  font-family: "IBM";
+  font-weight: 700;
+  src: url(./assets/fonts/IBMPlexSansKR-Bold.ttf);
+}
+
+* {
+  font-family: "IBM";
+}
+
 body {
   height: 100vh;
 }
@@ -138,14 +168,17 @@ h4 {
 }
 .todo-checkbox + label {
   position: relative;
-  padding-left: 20px;
+  padding-left: 25px;
 }
 .todo-checkbox + label::before {
   position: absolute;
   left: 0;
-  color: hotpink;
-  content: "♡"
+  content: "🤍"
 }
 .todo-checkbox:checked + label::before {
-  content: "♥"
+  content: "💗"
+}
+
+.todo-text {
+  font-weight: 500;
 }
