@@ -244,6 +244,7 @@ p {
 #todo-list .todo-checkbox + label {
   position: relative;
   padding-left: 25px;
+  cursor: pointer;
 }
 #todo-list .todo-checkbox + label::before {
   position: absolute;
