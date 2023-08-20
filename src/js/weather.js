@@ -8,18 +8,19 @@ function fetchWeatherInfo(position) {
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      const city = document.querySelector("#weather h4");
-      const weather = document.querySelector("#weather-state");
-      const temp = document.querySelector("#temp");
+      const weatherBox = document.querySelector(".weather");
+      const city = document.querySelector("#weather-city");
+      const temp = document.querySelector("#weather-temp");
+      const state = document.querySelector("#weather-state");
+
+      weatherBox.classList.remove("hidden");
 
       city.innerText = data.name;
+      temp.innerHTML = `${data.main.temp} °`;
 
-      const weatherText = data.weather[0].main;
-      const weatherIcon = data.weather[0].icon;
-      weather.innerHTML = `<img src="https://openweathermap.org/img/wn/${weatherIcon}.png" />${weatherText}`;
-
-
-      temp.innerHTML = `<img src="src/assets/images/thermometer.png" style="width:20px;" />${data.main.temp}`;
+      const stateText = data.weather[0].main;
+      const stateIcon = data.weather[0].icon;
+      state.innerHTML = `<img src="https://openweathermap.org/img/wn/${stateIcon}.png" />${stateText}`;
     });
 }
 
