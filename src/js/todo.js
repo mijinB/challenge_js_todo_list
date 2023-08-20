@@ -45,6 +45,13 @@ function updateTodo(id) {
   onTodoLoad();
 }
 
+function onEnterKeySubmit(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    updateTodo((event.target.id).replace("id_", ""));
+  }
+}
+
 function cancelEdit() {
   isEditing = false;
   editingTodoID = null;
@@ -75,24 +82,24 @@ function paintTodo(newTodoObj) {
   
   if (newTodoObj.id !== editingTodoID) {
     li.innerHTML = `
-    <input
-    type="checkbox"
-    id="id_${newTodoObj.id}"
-    class="todo-checkbox"
-    onClick="setComplete(${newTodoObj.id})"
-    ${newTodoObj.isComplete && "checked"}
-    />
-    <label for="id_${newTodoObj.id}" class="todo-text">
-    ${newTodoObj.text}
-    </label>
-    <div>
-    <button onClick="onEditTodo(${newTodoObj.id})">
-    edit
-    </button>
-    <button onClick="deleteTodo(this)">
-    ✖
-    </button>
-    </div>
+      <input
+      type="checkbox"
+      id="id_${newTodoObj.id}"
+      class="todo-checkbox"
+      onClick="setComplete(${newTodoObj.id})"
+      ${newTodoObj.isComplete && "checked"}
+      />
+      <label for="id_${newTodoObj.id}" class="todo-text">
+      ${newTodoObj.text}
+      </label>
+      <div>
+      <button onClick="onEditTodo(${newTodoObj.id})">
+      edit
+      </button>
+      <button onClick="deleteTodo(this)">
+      ✖
+      </button>
+      </div>
     `;
   } else {
     li.innerHTML = `
@@ -111,7 +118,7 @@ function paintTodo(newTodoObj) {
           ✖
         </button>
       </div>
-    `
+    `;
   }
 }
 
@@ -147,4 +154,7 @@ function onTodoLoad() {
 
     parsedTodos.forEach(paintTodo);
   }
+
+  const editInput = document.querySelector("input[id^=id][type=text]");
+  editInput?.addEventListener('keypress', onEnterKeySubmit);
 }
