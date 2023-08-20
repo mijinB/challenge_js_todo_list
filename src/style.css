@@ -140,7 +140,7 @@ h4 {
   box-sizing: border-box;
   width: 100%;
   height: 35px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   padding-right: 20px;
   border: 1px solid white;
   border-top-left-radius: 5px;
@@ -233,7 +233,7 @@ h4 {
 }
 
 #clock {
-  margin: 180px 0 50px;
+  margin: 180px 0 80px;
   color: white;
   font-family: "digital";
   font-size: 50px;
