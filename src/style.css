@@ -72,6 +72,8 @@ input:focus {
 }
 
 h2 {
+  display: flex;
+  justify-content: center;
   color: white;
   text-shadow: 2px 2px 3px gray;
   font-size: 30px;
@@ -140,7 +142,13 @@ h4 {
   font-weight: 600;
   content: "https://my-todo-list";
 }
+.card-content {
+  min-width: 400px;
+}
 
+#todo-form input {
+  width: 80%;
+}
 #todo-form button {
   padding: 4px 11px;
   height: 30.6px;
@@ -154,7 +162,6 @@ h4 {
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
-
 #todo-form button:hover{
   background-color: rgb(250, 156, 172);
 }
