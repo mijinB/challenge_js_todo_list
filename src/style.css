@@ -72,6 +72,9 @@ html, body {
   .folder {
     margin: 10px 0 25px;
   }
+  .folder-box {
+    left: 60px !important;
+  }
   #clock {
     margin: 0 25px !important;
   }
@@ -307,9 +310,9 @@ p {
 .folder-box {
   position: absolute;
   z-index: 1;
-  top: 196px;
-  left: 128px;
-  width: 800px;
+  top: 15px;
+  left: 328px;
+  width: 700px;
   height: 500px;
   border: 1px solid black;
   border-radius: 5px;
