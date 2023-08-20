@@ -60,20 +60,25 @@ html, body {
   .layout {
     flex-direction: column;
   }
+  .layout-left {
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 !important;
+  }
   .layout-right {
     flex-direction: row;
     justify-content: center;
     margin-top: 30px;
   }
-  .card {
-    max-width: 500px;
-    margin: 0 auto !important;
-  }
   .folder {
-    margin: 10px 0 25px;
+    margin: 10px 20px 25px;
   }
   .folder-box {
     left: 60px !important;
+  }
+  .card {
+    max-width: 500px;
+    margin: 0 auto !important;
   }
   #clock {
     margin: 0 25px !important;
