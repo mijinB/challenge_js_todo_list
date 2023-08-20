@@ -340,61 +340,61 @@ p {
   margin-right: 10px;
   cursor: pointer;
 }
-.game-content {
+.folder-content {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 465px;
   background-color: wheat;
 }
-.game-content button {
+#mini-games button {
   background: none;
   border: none;
   font-size: 60px;
   cursor: pointer;
 }
-.game-content button:hover {
+#mini-games button:hover {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
 }
-.game-content h1 {
+#mini-games h1 {
   margin-bottom: 30px;
   font-size: 28px;
 }
-.game-content .bold {
+#mini-games .bold {
   margin-bottom: 10px;
   font-weight: 600;
   font-size: 16px;
 }
-.game-content .battle {
+#mini-games .battle {
   color: red;
   font-weight: 600;
 }
-.game-content #games-button {
+#mini-games #games-button {
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 100px;
   left: 30px;
 }
-.game-content .selected-button {
+#mini-games .selected-button {
   border: 2px solid white;
   background-color: rgba(255, 255, 255, 0.3);
 }
 /* rpsGame */
-.game-content #rock-paper-scissors {
+#mini-games #rock-paper-scissors {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.game-content #result button {
+#mini-games #result button {
   margin-top: 10px;
   border: 2px solid white;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.3);
   cursor: default;
 }
-.game-content #result p {
+#mini-games #result p {
   margin-top: 10px;
   color: hotpink;
   text-align: center;
@@ -402,29 +402,29 @@ p {
   font-weight: 600;
 }
 /* randomNumberGame */
-.game-content #random-number-game {
+#mini-games #random-number-game {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.game-content #end-div {
+#mini-games #end-div {
   margin-top: 10px;
   margin-bottom: 15px;
 }
-.game-content #choice-div {
+#mini-games #choice-div {
   margin-bottom: 20px;
 }
-.game-content #play-div {
+#mini-games #play-div {
   margin-bottom: 18px;
 }
-.game-content #play-div p {
+#mini-games #play-div p {
   font-size: 17px;
 }
-.game-content #hidden-div {
+#mini-games #hidden-div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.game-content #hidden-div .bold {
+#mini-games #hidden-div .bold {
   margin-top: 8px;
 }
