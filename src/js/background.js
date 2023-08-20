@@ -15,7 +15,25 @@ const images = [
   "14.jpg",
   "15.jpg",
 ];
+const gradient = [
+  ["#c6ffdd", "#fbd786", "#f7797d"],
+  ["#12c2e9", "#c471ed", "#f7797d"],
+  ["#2980b9", "#6dd5fa", "#f7797d"],
+  ["#7f7fd5", "#86a8e7", "#91eae4"],
+  ["#a770ef", "#cf8bf3", "#fdb99b"],
+  ["#59c173", "#a17fe0", "#5d26c1"],
+  ["#4e54c8", "#8f94fb", "#fffde4"],
+  ["#fffbd5", "#fc5c7d", "#6a82fb"],
+  ["#cac531", "#f3f9a7", "#fffde4"],
+]
 
-const chosenImage = images[Math.floor(Math.random() * images.length)];
+// const chosenImage = images[Math.floor(Math.random() * images.length)];
+// document.body.style.background = `url(src/assets/images/${chosenImage}) center/cover no-repeat`;
 
-document.body.style.background = `url(src/assets/images/${chosenImage}) center/cover no-repeat`;
+const chosenGradient = gradient[Math.floor(Math.random() * images.length)];
+console.log(chosenGradient);
+if(chosenGradient !== undefined) {
+  document.body.style.background = `linear-gradient(45deg, ${chosenGradient[0]}, ${chosenGradient[1]}, ${chosenGradient[2]})`;
+} else {
+  document.body.style.background = `linear-gradient(45deg, ${gradient[0][0]}, ${gradient[0][1]}, ${gradient[0][2]})`;
+}
