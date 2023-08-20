@@ -300,6 +300,9 @@ p {
   overflow: hidden;
 }
 .game-box-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 35px;
   box-sizing: border-box;
@@ -307,10 +310,12 @@ p {
   background-color: #EDEDED;
 }
 .game-box-top-title {
-  position: relative;
-  top: 4px;
-  left: 7px;
+  margin-left: 10px;
   font-weight: 500;
+}
+#game-close-button {
+  margin-right: 10px;
+  cursor: pointer;
 }
 .game-content {
   background-color: wheat;

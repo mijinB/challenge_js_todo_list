@@ -1,4 +1,5 @@
-const gameButton = document.getElementById("game-button");
+const gameFolderButton = document.getElementById("game-folder-button");
+const gameCloseButton = document.getElementById("game-close-button");
 const miniGames = document.getElementById("mini-games");
 
 const gamesButton = document.getElementById("games-button");
@@ -9,6 +10,10 @@ const randomNumberGameDiv = document.getElementById("random-number-game");
 
 const onMiniGames = () => {
   miniGames.classList.remove("hidden");
+}
+
+const closeMiniGames = () => {
+  miniGames.classList.add("hidden");
 }
 
 const onGameChoice = (event) => {
@@ -22,5 +27,6 @@ const onGameChoice = (event) => {
   randomNumberGameDiv.classList.toggle("hidden", !isRandomGame);
 }
 
-gameButton.addEventListener("click", onMiniGames);
+gameFolderButton.addEventListener("click", onMiniGames);
+gameCloseButton.addEventListener("click", closeMiniGames);
 gamesButton.addEventListener("click", onGameChoice);
