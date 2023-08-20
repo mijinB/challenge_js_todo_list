@@ -11,7 +11,7 @@ li {
   height: 30px;
 }
 
-button {
+li button {
   display: inline-flex;
   justify-content: center;
   width: 20px;
@@ -22,13 +22,26 @@ button {
   vertical-align: middle;
   cursor: pointer;
 }
-button:hover {
+li button:hover {
   background-color: rgba(255, 255, 255, .5);
+}
+
+input {
+  padding: 4px 11px;
+  font-size: 14px;
+  line-height: 1.5;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  outline: none;
+}
+input:focus {
+  border: 1px solid hotpink;
 }
 
 h2 {
   color: white;
   text-shadow: 2px 2px 3px gray;
+  font-size: 30px;
 }
 h4 {
   margin: 0;
@@ -86,8 +99,6 @@ h4 {
   border-radius: 5px;
   background-color: white;
 }
-
-
 .card-top-box::after {
   position: absolute;
   top: 4px;
@@ -95,6 +106,24 @@ h4 {
   color: gray;
   font-weight: 600;
   content: "https://my-todo-list";
+}
+
+#todo-form button {
+  padding: 4px 11px;
+  height: 30.6px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  border: none;
+  border-radius: 6px;
+  background-color: pink;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#todo-form button:hover{
+  background-color: rgba(255, 192, 203, .8);
 }
 
 .todo-dress-left {
