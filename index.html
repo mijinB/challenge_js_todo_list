@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css">
-    <title>ToDo List</title>
-  </head>
-  <body>
-    <span id="clock">00:00:00</span>
-    <div id="weather">
-      <h4></h4>
-      <span id="weather-state"></span>
-      <span id="temp"></span>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-top-icons">
-          🔴🟡🟢
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/style.css">
+  <title>ToDo List</title>
+</head>
+
+<body>
+  <div class="layout">
+    <div class="layout-left"></div>
+    <div class="layout-center">
+      <div class="card">
+        <div class="card-top">
+          <div class="card-top-icons">
+            🔴🟡🟢
+          </div>
+          <div class="card-top-box"></div>
         </div>
-        <div class="card-top-box"></div>
-      </div>
-      <form id="login-form" class="hidden">
-        <h2>🐰 User Name</h2>
-        <input
-          required
-          type="text"
-          maxlength="15"
-          placeholder="What is your name?"
-        />
-        <button>Log In</button>
-      </form>
-      <div class="card-content">
-        <h2 id="greeting" class="hidden"></h2>
-        <div id="todo" class="hidden todo-dress-left">
-          <form id="todo-form">
-            <input
-              required
-              type="text"
-              placeholder="Write what you have to do"
-            />
-            <button>
-              ADD
-            </button>
-          </form>
-          <div class="todo-list-box">
-            <ul id="todo-list"></ul>
+        <form id="login-form" class="hidden">
+          <h2>🐰 User Name</h2>
+          <input required type="text" maxlength="15" placeholder="What is your name?" />
+          <button>Log In</button>
+        </form>
+        <div class="card-content">
+          <h2 id="greeting" class="hidden"></h2>
+          <div id="todo" class="hidden todo-dress-left">
+            <form id="todo-form">
+              <input required type="text" placeholder="Write what you have to do" />
+              <button>
+                ADD
+              </button>
+            </form>
+            <div class="todo-list-box">
+              <ul id="todo-list"></ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="src/js/apiKey.js"></script>
-    <script src="src/js/login.js"></script>
-    <script src="src/js/clock.js"></script>
-    <script src="src/js/todo.js"></script>
-    <script src="src/js/background.js"></script>
-    <script src="src/js/weather.js"></script>
-  </body>
+    <div class="layout-right">
+      <span id="clock">00:00:00</span>
+      <div id="weather">
+        <h4></h4>
+        <span id="weather-state"></span>
+        <span id="temp"></span>
+      </div>
+    </div>
+  </div>
+  <script src="src/js/apiKey.js"></script>
+  <script src="src/js/login.js"></script>
+  <script src="src/js/clock.js"></script>
+  <script src="src/js/todo.js"></script>
+  <script src="src/js/background.js"></script>
+  <script src="src/js/weather.js"></script>
+</body>
+
 </html>
