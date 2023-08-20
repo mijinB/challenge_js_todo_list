@@ -136,15 +136,6 @@ p {
   display: none !important;
 }
 
-#temp {
-  display: flex;
-  align-items: center
-}
-#weather-state {
-  display: flex;
-  align-items: center
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -277,6 +268,8 @@ p {
   font-weight: 500;
 }
 .weather #weather-state {
+  display: flex;
+  align-items: center;
   position: absolute;
   top: 83px;
   left: 10px;
