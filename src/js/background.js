@@ -1,4 +1,4 @@
-const images = [
+const cornilioImages = [
   "1.jpg",
   "2.jpg",
   "3.jpg",
@@ -14,6 +14,17 @@ const images = [
   "13.jpg",
   "14.jpg",
   "15.jpg",
+];
+const puuungImages = [
+  "1_.jpg",
+  "2_.jpg",
+  "3_.jpg",
+  "4_.jpg",
+  "5_.jpg",
+  "6_.jpg",
+  "7_.jpg",
+  "8_.jpg",
+  "9_.jpg",
 ];
 const gradient = [
   ["#c6ffdd", "#fbd786", "#f7797d"],
@@ -31,14 +42,16 @@ const settingFolderButton = document.getElementById("setting-folder-button");
 const settingCloseButton = document.getElementById("setting-close-button");
 const settingBox = document.getElementById("setting-box");
 
-const illustratorButton = document.getElementById("illustrator-button");
+const cornilioButton = document.getElementById("cornilio-button");
+const puuungButton = document.getElementById("puuung-button");
 const gradientButton = document.getElementById("gradient-button");
 
-const ILLUSTRATOR_STYLE = "illustrator";
+const CORNILIO_STYLE = "cornilio";
+const PUUUNG_STYLE = "puuung";
 const GRADIENT_STYLE = "gradient";
 const BACKGROUNDSTYLE_KEY = "backgroundstyle";
 
-let choicedBackground = ILLUSTRATOR_STYLE;
+let choicedBackground = CORNILIO_STYLE;
 
 const onSetting = () => {
   settingBox.classList.remove("hidden");
@@ -49,22 +62,27 @@ const closeSetting = () => {
 }
 
 const paintBackground = (style) => {
-  if(style === ILLUSTRATOR_STYLE) {
-    const chosenImage = images[Math.floor(Math.random() * images.length)];
-    document.body.style.background = `url(src/assets/images/${chosenImage}) center/cover no-repeat`;
+  if(style === CORNILIO_STYLE) {
+    const chosenCornilio = cornilioImages[Math.floor(Math.random() * cornilioImages.length)];
+    document.body.style.background = `url(src/assets/images/${chosenCornilio}) center/cover no-repeat`;
+  } else if(style === PUUUNG_STYLE) {
+    const chosenPuuung = puuungImages[Math.floor(Math.random() * puuungImages.length)];
+    document.body.style.background = `url(src/assets/images/${chosenPuuung}) center/cover no-repeat`;
   } else if(style === GRADIENT_STYLE) {
-    const chosenGradient = gradient[Math.floor(Math.random() * images.length)];
-    
-    if(chosenGradient !== undefined) {
-      document.body.style.background = `linear-gradient(45deg, ${chosenGradient[0]}, ${chosenGradient[1]}, ${chosenGradient[2]})`;
-    } else {
-      document.body.style.background = `linear-gradient(45deg, ${gradient[0][0]}, ${gradient[0][1]}, ${gradient[0][2]})`;
-    }
+    const chosenGradient = gradient[Math.floor(Math.random() * gradient.length)];
+    document.body.style.background = `linear-gradient(45deg, ${chosenGradient[0]}, ${chosenGradient[1]}, ${chosenGradient[2]})`;
   }
 }
 
-const choiceIllustrator = () => {
-  choicedBackground = ILLUSTRATOR_STYLE;
+const choiceCornilio = () => {
+  choicedBackground = CORNILIO_STYLE;
+  localStorage.setItem(BACKGROUNDSTYLE_KEY, choicedBackground);
+
+  paintBackground(choicedBackground);
+}
+
+const choicePuuung = () => {
+  choicedBackground = PUUUNG_STYLE;
   localStorage.setItem(BACKGROUNDSTYLE_KEY, choicedBackground);
 
   paintBackground(choicedBackground);
@@ -79,7 +97,7 @@ const choiceGradient = () => {
 
 const chosenBackground = localStorage.getItem(BACKGROUNDSTYLE_KEY);
 if(chosenBackground == null) {
-  choicedBackground = ILLUSTRATOR_STYLE;
+  choicedBackground = CORNILIO_STYLE;
   paintBackground(choicedBackground);
 } else {
   paintBackground(chosenBackground);
@@ -87,5 +105,6 @@ if(chosenBackground == null) {
 
 settingFolderButton.addEventListener("click", onSetting);
 settingCloseButton.addEventListener("click", closeSetting);
-illustratorButton.addEventListener("click", choiceIllustrator);
+cornilioButton.addEventListener("click", choiceCornilio);
+puuungButton.addEventListener("click", choicePuuung);
 gradientButton.addEventListener("click", choiceGradient);
