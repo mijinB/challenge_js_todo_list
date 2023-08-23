@@ -75,6 +75,7 @@ function setComplete(id) {
   })
 
   saveTodos();
+  onTodoLoad();
 }
 
 function paintTodo(newTodoObj) {
@@ -93,7 +94,11 @@ function paintTodo(newTodoObj) {
         onClick="setComplete(${newTodoObj.id})"
         ${newTodoObj.isComplete && "checked"}
       />
-      <label for="id_${newTodoObj.id}" class="todo-text">
+      <label
+        for="id_${newTodoObj.id}"
+        class="todo-text"
+        ${newTodoObj.isComplete ? "style=text-decoration:line-through" : null}
+      >
         ${newTodoObj.text}
       </label>
       <div>
