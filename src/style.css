@@ -352,6 +352,7 @@ p {
 }
 .folder-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 465px;
@@ -440,7 +441,12 @@ p {
   margin-top: 8px;
 }
 
-.setting-background > p {
+.setting-background, .setting-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.setting-background > p, .setting-icon > p {
   margin-bottom: 15px;
   font-size: 18px;
   font-weight: 500;
@@ -448,18 +454,19 @@ p {
 .background-buttons {
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 50px;
 }
 .background-button {
   display: flex;
   flex-direction: column;
 }
-.background-button button {
+.background-button button, .icon-buttons button {
   border: none;
   background: none;
   font-size: 35px;
   cursor: pointer;
 }
-.background-button button:hover {
+.background-button button:hover, .icon-buttons button:hover {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, .5);
 }
