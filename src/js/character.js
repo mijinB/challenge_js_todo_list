@@ -4,10 +4,10 @@ const greetingText = document.querySelector("#greeting");
 
 const CHARACTER_KEY = "character";
 
-const userName = localStorage.getItem("username");
 let choiceCharacter = "🐰";
 
 const choiceButton = (event) => {
+  const userName = localStorage.getItem("username");
   choiceCharacter = event.target.innerText;
   
   localStorage.setItem(CHARACTER_KEY, choiceCharacter);
@@ -18,6 +18,7 @@ const choiceButton = (event) => {
 
 const onLoadCharacter = () => {
   const chosenCharacter = localStorage.getItem(CHARACTER_KEY);
+  const userName = localStorage.getItem("username");
   if (chosenCharacter == null) {
     choiceCharacter = "🐰";
   } else {

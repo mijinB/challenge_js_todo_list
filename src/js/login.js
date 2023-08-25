@@ -6,8 +6,10 @@ const todo = document.querySelector("#todo");
 const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
 
+let character = "🐰";
+
 function paintGreetings(username) {
-  greeting.innerText = `🐰 ${username}\`s To Do`;
+  greeting.innerText = `${character} ${username}\`s To Do`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
   todo.classList.remove(HIDDEN_CLASSNAME);
 }
@@ -23,10 +25,24 @@ function onLoginSubmit(event) {
   paintGreetings(username);
 }
 
-const savedUserName = localStorage.getItem(USERNAME_KEY);
-if(savedUserName == null) {
-  loginForm.classList.remove(HIDDEN_CLASSNAME);
-  loginForm.addEventListener("submit", onLoginSubmit);
-} else {
-  paintGreetings(savedUserName);
+const onUserName = () => {
+  const savedUserName = localStorage.getItem(USERNAME_KEY);
+  if(savedUserName == null) {
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
+  } else {
+    paintGreetings(savedUserName);
+  }
 }
+
+const onCharacter = () => {
+  const chosenCharacter = localStorage.getItem("character");
+  if (chosenCharacter == null) {
+    character = "🐰";
+  } else {
+    character = chosenCharacter;
+  }
+}
+
+onUserName();
+onCharacter();
