@@ -315,6 +315,9 @@ p {
   align-items: center;
   height: 70px;
 }
+.icon-img:disabled {
+  opacity: .4;
+}
 .folder-name {
   text-align: center;
   font-size: 15px;

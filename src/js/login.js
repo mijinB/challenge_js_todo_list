@@ -3,6 +3,9 @@ const loginInput = document.querySelector("#login-form input");
 const greeting = document.querySelector("#greeting");
 const todo = document.querySelector("#todo");
 
+const gameButton = document.querySelector("#game-folder-button");
+const settingButton = document.querySelector("#setting-folder-button");
+
 const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
 
@@ -12,6 +15,9 @@ function paintGreetings(username) {
   greeting.innerText = `${character} ${username}\`s To Do`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
   todo.classList.remove(HIDDEN_CLASSNAME);
+
+  gameButton.disabled = false;
+  settingButton.disabled = false;
 }
 
 function onLoginSubmit(event) {
