@@ -10,7 +10,9 @@
 
 <body>
   <div class="layout">
+    <!--좌측 화면-->
     <div class="layout-left">
+      <!--게임 폴더-->
       <div class="folder">
         <button
           disabled
@@ -20,6 +22,7 @@
           📁
         </button>
         <p class="folder-name">games</p>
+        <!--게임 화면-->
         <div id="mini-games" class="folder-box hidden">
           <div class="folder-box-top">
             <div class="folder-box-top-title">📁 games</div>
@@ -30,6 +33,7 @@
               <button id="rps-game-button" class="selected-button">✊</button>
               <button id="random-game-button">🎲</button>
             </div>
+            <!--가위바위보 게임-->
             <div id="rock-paper-scissors">
               <h1>Rock Paper Scissors</h1>
               <div id="game-cards">
@@ -42,6 +46,7 @@
                 <p></p>
               </div>
             </div>
+            <!--랜덤숫자 게임-->
             <div id="random-number-game" class="hidden">
               <h1>Random Number Game</h1>
               <div id="end-div">
@@ -70,6 +75,7 @@
           </div>
         </div>
       </div>
+      <!--설정 폴더-->
       <div class="folder">
         <button
           disabled
@@ -79,12 +85,14 @@
           <img src="src/assets/images/setting.png" width="60px" />
         </button>
         <p class="folder-name">setting</p>
+        <!--설정 화면-->
         <div id="setting-box" class="folder-box hidden">
           <div class="folder-box-top">
             <div class="folder-box-top-title">📁 setting</div>
             <div id="setting-close-button" class="folder-close-button">✖</div>
           </div>
           <div class="folder-content">
+            <!--배경화면 설정-->
             <div class="setting-background">
               <p>Select a background style</p>
               <div class="background-buttons">
@@ -117,6 +125,7 @@
                 </div>
               </div>
             </div>
+            <!--캐릭터 설정-->
             <div class="setting-character">
               <p>Select a character</p>
               <div class="character-buttons">
@@ -130,6 +139,7 @@
           </div>
         </div>
       </div>
+      <!--배경화면 바꾸기 버튼-->
       <div class="folder">
         <button id="change-button" class="folder-icon">✨</button>
         <div class="folder-name">
@@ -138,7 +148,9 @@
         </div>
       </div>
     </div>
+    <!--중앙 화면-->
     <div class="layout-center">
+      <!--메인 카드-->
       <div class="card">
         <div class="card-top">
           <div class="card-top-icons">
@@ -147,11 +159,13 @@
           <div class="card-top-box"></div>
         </div>
         <div class="card-content">
+          <!--로그인-->
           <form id="login-form" class="hidden">
             <h2>🐰 User Name</h2>
             <input required type="text" maxlength="15" placeholder="What is your name?" />
             <button>Log In</button>
           </form>
+          <!--Todo List-->
           <h2 id="greeting" class="hidden"></h2>
           <div id="todo" class="hidden todo-dress-left">
             <form id="todo-form">
@@ -167,8 +181,11 @@
         </div>
       </div>
     </div>
+    <!--우측 화면-->
     <div class="layout-right">
+      <!--시계-->
       <span id="clock">00:00:00</span>
+      <!--날씨-->
       <div class="weather hidden">
         <p id="weather-city"></p>
         <p id="weather-temp"></p>
@@ -176,6 +193,8 @@
       </div>
     </div>
   </div>
+  
+  <!--스크립트-->
   <script src="src/js/apiKey.js"></script>
   <script src="src/js/login.js"></script>
   <script src="src/js/clock.js"></script>
