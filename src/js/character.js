@@ -16,8 +16,8 @@ const paintText = (character, userName) => {
 
 /**@function onCharacterChoice
  * 1. lacalStorage에 저장되어 있는 사용자 이름을 가져오고
- * 2. 사용자가 클릭한 character 버튼을 감지해서 변수에 해당 character를 대입해주고
- * 3. 변수에 대입한 character를 lacalStorage에 저장
+ * 2. 사용자가 클릭한 character 버튼을 감지해서 전역 변수에 해당 character를 대입해주고
+ * 3. 전역 변수에 대입한 character를 lacalStorage에 저장
  * 4. paintText 함수 실행(화면에 표출)
  */
 const onCharacterChoice = (event) => {
@@ -31,7 +31,7 @@ const onCharacterChoice = (event) => {
 
 /**@function onLoadCharacter
  * 1. lacalStorage에 저장되어 있는 character와 userName을 가져오고
- * 2. lacalStorage에서 가져온 character가 있는지 확인 후 해당 character를 변수에 대입
+ * 2. lacalStorage에서 가져온 character가 있는지 확인 후 해당 character를 전역 변수에 대입
  * 3. paintText 함수 실행(화면에 표출)
  */
 const onLoadCharacter = () => {
